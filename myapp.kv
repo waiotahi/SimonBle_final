@@ -1,0 +1,64 @@
+<MainScreen>:
+    orientation: "vertical"
+    padding: dp(10)  
+    spacing: dp(10)
+
+    Label:
+        
+        text: "BLE App"
+        font_size: "24sp"
+        color: 1, 1, 1, 1
+        size_hint_y: 0.2
+
+    Label:
+        id: status_label
+        text:'Not Reading ...'
+        size_hint_y:0.1
+
+    Label:
+        id: output_label
+        text: ""
+        font_size: "20sp"
+        bold:True
+        color: 0.8, 0.9, 1, 1
+
+
+    TextInput:
+        id: input_box
+        use_bubble:True
+        text: ""
+        multiline: False
+        size_hint_x:1
+        #padding:dp(5)
+        #pos_hint: {"center_x": 0.5}
+        font_size: "18sp"
+        bold:True
+        halign: "center"
+        padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]  
+
+
+    BoxLayout:
+        padding:dp(1)
+        spacing:dp(5)
+        Button:
+            text:"Start"
+            font_size: "17sp"
+            on_release:root._start()
+        Button:
+            text:"Stop"
+            font_size: "17sp"
+            on_release:root._stop()
+    BoxLayout:
+        padding:dp(1)
+        spacing:dp(5)
+        Button:
+            text:"Record"
+            font_size: "17sp"
+            on_release:root._record()
+        Button:
+            text:"Clear"
+            font_size: "17sp"
+            on_release:
+                input_box.text=''
+       
+   
